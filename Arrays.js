@@ -17,7 +17,7 @@ console.log(fruits[3]);
 fruits.push("Pineapple")
 console.log(fruits);
 
-// Removing the last element 
+// Removing the last element t
 fruits.pop();
 console.log(fruits);
 
