@@ -23,3 +23,6 @@ console.log(fruits);
 
 // length of array:
 console.log("Length of array is : " + fruits.length);
+
+
+

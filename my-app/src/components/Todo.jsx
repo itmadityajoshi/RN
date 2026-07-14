@@ -1,85 +1,40 @@
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 
 const Todo = () => {
+  const [task, setTask] = useState("");
+  const [todos, setTodo] = useState([]);
 
-    const todos = [
-  {
-    id: 1,
-    title: "Buy groceries",
-    completed: false,
-    priority: "High",
-  },
-  {
-    id: 2,
-    title: "Finish React assignment",
-    completed: true,
-    priority: "High",
-  },
-  {
-    id: 3,
-    title: "Go for a morning walk",
-    completed: false,
-    priority: "Medium",
-  },
-  {
-    id: 4,
-    title: "Read 20 pages of a book",
-    completed: false,
-    priority: "Low",
-  },
-  {
-    id: 5,
-    title: "Clean the workspace",
-    completed: true,
-    priority: "Medium",
-  },
-  {
-    id: 6,
-    title: "Call the electrician",
-    completed: false,
-    priority: "High",
-  },
-  {
-    id: 7,
-    title: "Pay electricity bill",
-    completed: true,
-    priority: "High",
-  },
-  {
-    id: 8,
-    title: "Practice JavaScript",
-    completed: false,
-    priority: "Medium",
-  },
-  {
-    id: 9,
-    title: "Schedule dentist appointment",
-    completed: false,
-    priority: "Low",
-  },
-  {
-    id: 10,
-    title: "Water the plants",
-    completed: true,
-    priority: "Low",
-  },
-];
+  function addTodo() {
+    if (task === "") {
+      return;
+    }
+    setTodo([...todos, task]);
+    console.log(task);
+    setTask("");
+  }
 
+  function remove(index) {
+    const newTodos = todos.filter((todos, currentIndex) => {
+      return currentIndex !== index;
+    });
+    setTodo(newTodos);
+  }
 
   return (
-    <div>
+    <>
+      <input value={task} onChange={(e) => setTask(e.target.value)} />
+      <b> </b>
+      <button onClick={addTodo}>Add Todo</button>
 
-        {
-            todos.map((todo)=>(
-                <h2 key={todo.id}>
-                    {todo.title}
-                </h2>
-            ))
-        }
+      {todos.map((todo, index) => (
+        <>
+          <h2 key={index}>{todo} </h2>{" "}
+          <button onClick={() => remove(index)}>remove Todo</button>
+        </>
+      ))}
+    </>
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default Todo
+export default Todo;
