@@ -53,7 +53,7 @@ const Todo = () => {
 
       {todos.map((todo, index) => (
         <>
-          <h2 key={index}>{todo} </h2>{" "}
+          <h2 key={index}>{todo} </h2>
           <button onClick={() => remove(index)}>Delete</button> <b>  </b>
           <button onClick={() => edit(index)}>Edit</button>
         </>
